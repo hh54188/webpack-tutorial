@@ -1,0 +1,1 @@
+export const str = 'This is from module_b';
