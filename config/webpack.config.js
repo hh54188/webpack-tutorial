@@ -3,6 +3,7 @@ var path = require('path');
 
 module.exports = {
     entry: './app.js',
+    context: path.join(__dirname, '..'),
     output: {
         path: path.resolve('.'),
         filename: 'bundle.js'
@@ -13,8 +14,14 @@ module.exports = {
             loaders: ['style-loader', 'css-loader']
         }]
     },
+    resolve: {
+        alias: {
+            scripts: path.join(__dirname, '..', 'src', 'scripts'),
+            styles: path.join(__dirname, '..', 'src', 'styles')            
+        }
+    },
     plugins: [
         new webpack.optimize.UglifyJsPlugin()
-    ]
-    // watch: true
+    ],
+    watch: true
 }

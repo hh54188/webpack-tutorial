@@ -1,7 +1,12 @@
 {
+  "name": "webpack-tutorial",
+  "version": "0.0.1",
   "devDependencies": {
     "css-loader": "^0.27.3",
     "style-loader": "^0.16.0",
     "webpack": "^2.3.1"
+  },
+  "scripts": {
+    "dev": "webpack --config config/webpack.config.js"
   }
 }
