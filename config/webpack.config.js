@@ -1,10 +1,14 @@
+// https://webpack.js.org/configuration/
+
 var webpack = require('webpack');
 var path = require('path');
 
 module.exports = {
     context: path.join(__dirname, '..'),
     entry: {
-        app: './entry/app.js'
+        app: './entry/app.js',
+        home: './entry/home.js',
+        about: './entry/about.js'
     },
     output: {
         path: path.resolve('.', 'output'),
@@ -27,7 +31,11 @@ module.exports = {
         }
     },
     plugins: [
-        new webpack.optimize.UglifyJsPlugin()
+        new webpack.optimize.UglifyJsPlugin(),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: "commons",
+            filename: "commons.js",
+        })        
     ],
     devServer: {
         // contentBase: path.join(__dirname)
