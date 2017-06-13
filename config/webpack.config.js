@@ -31,11 +31,17 @@ module.exports = {
         }
     },
     plugins: [
-        new webpack.optimize.UglifyJsPlugin(),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: "commons",
-            filename: "commons.js",
-        })        
+        new webpack.DefinePlugin({
+            'process.env': {
+                // NODE_ENV: JSON.stringify('production')
+                NODE_ENV: JSON.stringify('development')
+            }
+        }),
+        new webpack.optimize.UglifyJsPlugin()
+        // new webpack.optimize.CommonsChunkPlugin({
+        //     name: "commons",
+        //     filename: "commons.js",
+        // })        
     ],
     devServer: {
         // contentBase: path.join(__dirname)
