@@ -32,6 +32,9 @@ module.exports = {
     },
     plugins: [
         new webpack.optimize.UglifyJsPlugin(),
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify(ENV)
+        }),        
         new webpack.optimize.CommonsChunkPlugin({
             name: "commons",
             filename: "commons.js",
